@@ -1,10 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-    <title>Welcome to Phu Gia Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Năm Mới Âm Lịch</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #FFD700;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #FF4500;
+            color: white;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 3em;
+        }
+        .countdown {
+            font-size: 2em;
+            margin: 20px 0;
+            color: #FF6347;
+        }
+        .image-container img {
+            width: 300px;
+            margin: 20px auto;
+        }
+        footer {
+            background: #FF4500;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello my frienddd!</h1>
-    <p>This is my first GitHub Pages website!</p>
+    <header>
+        <h1>Chúc Mừng Năm Mới Âm Lịch!</h1>
+        <p>Chúc bạn và gia đình một năm mới an khang, thịnh vượng!</p>
+    </header>
+
+    <div class="countdown">
+        <p>Còn lại: <span id="time">00:00:00</span></p>
+    </div>
+
+    <div class="image-container">
+        <img src="https://example.com/happy-new-year-image.jpg" alt="Chúc Mừng Năm Mới">
+    </div>
+
+    <footer>
+        <p>© 2025 - Tất cả bản quyền thuộc về bạn!</p>
+    </footer>
+
+    <script>
+        function countdownToNewYear() {
+            const newYearDate = new Date('2025-02-10T00:00:00'); // Thay đổi ngày Tết âm lịch tại đây
+            const now = new Date();
+            const diff = newYearDate - now;
+
+            if (diff <= 0) {
+                document.getElementById('time').innerText = "Chúc Mừng Năm Mới!";
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('time').innerText = `${days} ngày ${hours} giờ ${minutes} phút ${seconds} giây`;
+        }
+
+        setInterval(countdownToNewYear, 1000);
+    </script>
 </body>
 </html>
